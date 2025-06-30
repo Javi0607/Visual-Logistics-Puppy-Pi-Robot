@@ -1,0 +1,6 @@
+- setup-file:
+<<<<<<< HEAD
+    local-name: /home/pi/Desktop/catkin_ws/devel/setup.sh
+=======
+    local-name: /home/pi/puppy_pi/devel/setup.sh
+>>>>>>> c4b322ddf80978833717aae3b81e3646efcd2d4b

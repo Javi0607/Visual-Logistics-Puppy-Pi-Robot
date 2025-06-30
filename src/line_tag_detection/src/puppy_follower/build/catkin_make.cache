@@ -1,0 +1,2 @@
+
+-DCATKIN_DEVEL_PREFIX=/home/pi/Desktop/catkin_ws/src/puppy_follower/devel -DCMAKE_INSTALL_PREFIX=/home/pi/Desktop/catkin_ws/src/puppy_follower/install -G Unix Makefiles

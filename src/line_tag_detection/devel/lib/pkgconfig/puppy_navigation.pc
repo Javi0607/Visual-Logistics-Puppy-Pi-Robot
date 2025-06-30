@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+prefix=/home/pi/Desktop/catkin_ws/devel
+=======
+prefix=/home/pi/puppy_pi/devel
+>>>>>>> c4b322ddf80978833717aae3b81e3646efcd2d4b
+
+Name: puppy_navigation
+Description: Description of puppy_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

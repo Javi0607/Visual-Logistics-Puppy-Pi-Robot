@@ -1,0 +1,24 @@
+<launch>
+  
+  <!-- Lanzar el Lidar -->
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+
+  <!-- Lanzar move_base -->
+  <include file="$(find puppy_avoidance)/launch/move_base.launch" />
+
+  <!-- Lanzar simulador de movimiento -->
+  <node pkg="puppy_avoidance" type="simple_motion_simulator.py" name="simple_motion_simulator" output="screen" launch-prefix="python3" />
+
+  <!-- Lanzar transformaciones estáticas -->
+  <node pkg="tf" type="static_transform_publisher" name="static_tf_laser" args="0 0 0 0 0 0 base_link laser 10" />
+  <node pkg="tf" type="static_transform_publisher" name="static_tf_footprint" args="0 0 0 0 0 0 base_link base_footprint 10" />
+
+  <!-- Lanzar obstáculos virtuales -->
+  <node pkg="puppy_avoidance" type="virtual_obstacles.py" name="virtual_obstacles" output="screen" launch-prefix="python3" />
+
+  <!-- Opcional: lanzar RViz automáticamente -->
+  
+  <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find puppy_avoidance)/config/your_rviz_config.rviz" />
+  
+
+</launch>

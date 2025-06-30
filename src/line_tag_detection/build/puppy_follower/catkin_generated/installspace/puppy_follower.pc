@@ -1,0 +1,8 @@
+prefix=/home/pi/Desktop/catkin_ws/install
+
+Name: puppy_follower
+Description: Description of puppy_follower
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

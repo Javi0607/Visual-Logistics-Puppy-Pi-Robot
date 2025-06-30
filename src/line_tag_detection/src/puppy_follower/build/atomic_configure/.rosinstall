@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pi/Desktop/catkin_ws/src/puppy_follower/devel/setup.sh

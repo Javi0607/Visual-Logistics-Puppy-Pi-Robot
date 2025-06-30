@@ -1,0 +1,8 @@
+prefix=/home/pi/Desktop/catkin_ws/devel
+
+Name: puppy_avoidance
+Description: Description of puppy_avoidance
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

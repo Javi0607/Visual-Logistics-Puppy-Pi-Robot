@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- Run move_base -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+    <param name="transform_tolerance" value="0.5" />
+    <rosparam file="$(find puppy_navigation)/config/costmap_common_params.yaml" command="load" />
+    <rosparam file="$(find puppy_navigation)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find puppy_navigation)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find puppy_navigation)/config/base_local_planner_params.yaml" command="load" />
+  </node>
+</launch>

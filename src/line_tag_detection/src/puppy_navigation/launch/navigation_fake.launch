@@ -1,0 +1,39 @@
+<launch>
+  <param name="use_sim_time" value="false" />
+
+  <!-- Mapa estático -->
+  <arg name="map_file" default="$(find puppy_slam)/maps/map1.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- TF simulado: map → odom -->
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom"
+        args="0 0 0 0 0 0 map odom 100" />
+
+  <!-- TF simulado: odom → base_footprint -->
+  <node pkg="tf" type="static_transform_publisher" name="odom_to_base_footprint"
+        args="0 0 0 0 0 0 odom base_footprint 100" />
+
+  <!-- TF: base_footprint → imu_link -->
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_imu"
+        args="0 0 0.125 0 0 0 base_footprint imu_link 20" />
+
+  <!-- Nodo move_base -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen" clear_params="true">
+    <rosparam file="$(find puppy_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find puppy_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find puppy_navigation)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find puppy_navigation)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find puppy_navigation)/config/base_global_planner_param.yaml" command="load" />
+    <rosparam file="$(find puppy_navigation)/config/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find puppy_navigation)/config/move_base_params.yaml" command="load" />
+
+    <param name="global_costmap/global_frame"     value="map"/>
+    <param name="global_costmap/robot_base_frame" value="base_footprint"/>
+    <param name="local_costmap/global_frame"      value="odom"/>
+    <param name="local_costmap/robot_base_frame"  value="base_footprint"/>
+
+    <remap from="/cmd_vel" to="/cmd_vel_nav"/>
+    <remap from="/odom" to="/odom"/>
+    <remap from="/map" to="/map"/>
+  </node>
+</launch>
