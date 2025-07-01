@@ -26,7 +26,7 @@ To run the system:
     ```bash
     rosrun puppy_follower <your_script_name>.py
     
-Use available ROS services:
+3. **Use available ROS services:**
 
    ```bash
    rosservice call /rosnode/enter
