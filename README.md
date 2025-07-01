@@ -30,8 +30,8 @@ To run the system:
 
    ```bash
    rosservice call /rosnode/enter
-   rosservice call /rosnode/set_running "data: true"
-   rosservice call /rosnode/set_target "data: 'black'"
+   rosservice call /rosnode/set_running 1
+   rosservice call /rosnode/set_target blue or black or red or ...
 
 4. **To view the camera image:**
 
