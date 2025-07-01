@@ -33,7 +33,7 @@ To run the system:
    rosservice call /rosnode/set_running "data: true"
    rosservice call /rosnode/set_target "data: 'black'"
 
-To view the camera image:
+4. **To view the camera image:**
 
    ```bash
    rqt_image_view
