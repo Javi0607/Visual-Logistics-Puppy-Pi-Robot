@@ -21,19 +21,23 @@ To run the system:
    ```bash
    source devel/setup.bash
    
-2. **Launch the follower script:** 
+2. **Launch the follower script:**
+
     ```bash
-rosrun puppy_follower <your_script_name>.py
+    rosrun puppy_follower <your_script_name>.py
+    
 Use available ROS services:
 
    ```bash
-rosservice call /rosnode/enter
-rosservice call /rosnode/set_running "data: true"
-rosservice call /rosnode/set_target "data: 'black'"
+   rosservice call /rosnode/enter
+   rosservice call /rosnode/set_running "data: true"
+   rosservice call /rosnode/set_target "data: 'black'"
+
 To view the camera image:
 
    ```bash
-rqt_image_view
+   rqt_image_view
+
 📌 Notes
 Make sure your Puppy Pi is connected and running roscore.
 
